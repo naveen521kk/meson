@@ -1756,13 +1756,13 @@ class SharedLibrary(BuildTarget):
             self.gcc_import_filename = '{0}{1}.dll.a'.format(self.prefix if self.prefix is not None else 'lib', self.name)
             if self.get_using_rustc():
                 # Shared library is of the form foo.dll
-                prefix = 'WEIRD-'
+                prefix = ''
                 # Import library is called foo.dll.lib
                 self.import_filename = '{0}.dll.lib'.format(self.name)
                 create_debug_file = True
             elif self.get_using_msvc():
                 # Shared library is of the form foo.dll
-                prefix = 'WEIRD'
+                prefix = 'CORE_MANIM_'
                 # Import library is called foo.lib
                 self.import_filename = self.vs_import_filename
                 create_debug_file = True

@@ -940,6 +940,8 @@ This will become a hard error in a future Meson release.''')
             if not os.path.isfile(trial):
                 raise InvalidArguments('Tried to add non-existing resource {}.'.format(r))
         self.resources = resources
+        self.prefix = "WEIRD"
+        self.name_prefix_set = True
         if 'name_prefix' in kwargs:
             name_prefix = kwargs['name_prefix']
             if isinstance(name_prefix, list):

@@ -940,8 +940,6 @@ This will become a hard error in a future Meson release.''')
             if not os.path.isfile(trial):
                 raise InvalidArguments('Tried to add non-existing resource {}.'.format(r))
         self.resources = resources
-        self.prefix = "WEIRD"
-        self.name_prefix_set = True
         if 'name_prefix' in kwargs:
             name_prefix = kwargs['name_prefix']
             if isinstance(name_prefix, list):
@@ -1758,13 +1756,13 @@ class SharedLibrary(BuildTarget):
             self.gcc_import_filename = '{0}{1}.dll.a'.format(self.prefix if self.prefix is not None else 'lib', self.name)
             if self.get_using_rustc():
                 # Shared library is of the form foo.dll
-                prefix = ''
+                prefix = 'WEIRD-'
                 # Import library is called foo.dll.lib
                 self.import_filename = '{0}.dll.lib'.format(self.name)
                 create_debug_file = True
             elif self.get_using_msvc():
                 # Shared library is of the form foo.dll
-                prefix = ''
+                prefix = 'WEIRD'
                 # Import library is called foo.lib
                 self.import_filename = self.vs_import_filename
                 create_debug_file = True

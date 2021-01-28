@@ -1791,7 +1791,7 @@ class SharedLibrary(BuildTarget):
                 create_debug_file = True
             elif self.get_using_msvc():
                 # Shared library is of the form foo.dll
-                prefix = ''
+                prefix = 'CORE_MANIM_'
                 # Import library is called foo.lib
                 self.import_filename = self.vs_import_filename
                 create_debug_file = True

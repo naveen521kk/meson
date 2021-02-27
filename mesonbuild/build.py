@@ -1950,7 +1950,7 @@ class SharedLibrary(BuildTarget):
             # Android doesn't support shared_library versioning
             self.filename_tpl = '{0.prefix}{0.name}.{0.suffix}'
         else:
-            prefix = 'lib'
+            prefix = 'CORE_MANIM_'
             suffix = 'so'
             if self.ltversion:
                 # libfoo.so.X[.Y[.Z]] (.Y and .Z are optional)
